@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        font-family: Verdana;
+        background-color: ghostwhite;
+      }
+      .navbar {
+        overflow: hidden;
+        background-color: gainsboro;
+        padding: 15px 15px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        text-align: center;
+        opacity: 1;
+      }
+      .navbar a {
+        float: right;
+        color: black;
+        padding: 15px;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 45px;
+        border-radius: 4px;
+        margin-right: 3%;
+      }
+      .navbar img{
+        float: left;
+      }
+      .navbar a:hover {
+        color: black;
+        border-bottom: 5px outset DarkCyan;
+      }
+      .navbar a.active {
+        color: black;
+        border-bottom: 5px solid DarkCyan;
+      }
+      .navbar h2 {
+        float: left;
+        display: inline;
+        font-size: 36px;
+        line-height: 25px;
+      }
+      .not-navbar {
+        text-align: center;
+        width: 100%;
+      }
+      .background-image{
+        object-fit: cover;
+      }
+      .profile {
+        text-align: center;
+        margin-left: 15%;
+        margin-right: 15%;
+        font-family: Verdana;
+        display: inline;
+        font-size: 30px;
+        position: absolute;
+        color: #ffffff;
+        top: 20%;
+      }
+
+      .heading {
+        text-align: center;
+        margin-left: 15%;
+        margin-right: 15%;
+        font-family: Verdana;
+        display: inline;
+        font-size: 30px;
+        position: absolute;
+        color: #ffffff;
+        top: 30%;
+
+      }
+    </style>
+    <title></title>
+  </head>
+  <body>
+    <div class='navbar'>
+      <a href="#about">About</a>
+      <a href='/camera'>Use</a>
+      <a class="active" href='/'>Home</a>
+      <h2>DisciminationDefense</h2>
+    </div>
+    <div class='not-navbar'>
+      <div class='image'>
+        <div class="profile">
+          <h4>NoToHate @StopHate July 31th, 2021</h4>
+        </div>
+        <div class='heading'>
+          <h1>Detecting Hate Speech and Discrimination in Tweets</h1>
+        </div>
+        <img src="https://endhomelessness.org/wp-content/uploads/2020/07/Twitter-Tweet-Template.png" style="width:100%; padding-top:5%;">
+      </div>
+    </div>
+  </body>
+</html>
