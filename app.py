@@ -20,7 +20,7 @@ def real_world():
 def handling():
     tweet = request.form['tweet']
     print(tweet)
-    return "<h1><h1>"
+    return f"<h1>{tweet}<h1>"
 
 if __name__ == "__main__":
     app.run(debug=True)
