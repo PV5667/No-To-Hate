@@ -1,0 +1,19 @@
+from textblob import TextBlob
+def get_sentiment(tweet):
+    return TextBlob(tweet).sentiment.subjectivity
+
+
+tweet = ''
+model = tf.keras.Sequential([
+    encoder,
+    tf.keras.layers.Embedding(input_dim=len(encoder.get_vocabulary()), output_dim=64, mask_zero=True),
+    tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64,  return_sequences=True)),
+    tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64)),
+    tf.keras.layers.Dense(32, activation='relu'),
+    tf.keras.layers.Dense(2, activation='softmax')
+])
+model = tf.keras.models.load_model('')
+prediction = model.predict(np.array([tweet]))
+for i in prediction:
+    labels = ['hate', 'normal']
+    print(labels[np.argmax(i)])
