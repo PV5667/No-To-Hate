@@ -1,8 +1,10 @@
+import re
+
 badlist = ['bitch', 'fuck','crap','asshole']
 tweet = input("What is your tweet?\n")
 
 def censor_tweet(tweet):
-  if ',' or '.'
+  tweet = re.sub(r'[^\w\s]', '', tweet)
   tweet_list = tweet.lower().split()
   #print(tweet_list)
   #print(badlist)
