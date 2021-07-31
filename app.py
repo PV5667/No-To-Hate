@@ -16,6 +16,12 @@ def black_list():
 def real_world():
     return render_template("RealWorld.html")
 
+@app.route("/handling", methods=['POST'])
+def handling():
+    tweet = request.form['tweet']
+    print(tweet)
+    return f"<h1>{tweet}<h1>"
+
 if __name__ == "__main__":
     app.run(debug=True)
 
