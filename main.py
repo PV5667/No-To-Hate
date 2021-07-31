@@ -17,4 +17,4 @@ def censor_tweet(tweet):
     return censor_string
 
 
-# print(censor_tweet(tweet))
+print(censor_tweet(tweet))

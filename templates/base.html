@@ -7,17 +7,23 @@
         <title>{% block title %}{% endblock %}</title>
     </head>
 <body>
+    <style>
+        .end{
+            margin: 0px;
+            font-size: 30px;
+        }
+    </style>
     <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
         <div class="container-fluid">
-          <a class="navbar-brand " href="/#">NAME</a>
+          <a class="navbar-brand end" href="/#">Discrimination Defense</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="collapse navbar-collapse d-flex justify-content-end end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link active" aria-current="page" href="/#">Home</a>
-              <a class="nav-link" href="/black-list">Blacklist</a>
-              <a class="nav-link" href="/real-world">Real World</a>
+              <a class="nav-link active" href="/black-list">Blacklist</a>
+              <a class="nav-link active" href="/real-world">Real World</a>
             </div>
           </div>
         </div>
