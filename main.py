@@ -1,5 +1,9 @@
 import re
 from profanity_check import predict, predict_prob
+import pickle
+
+with open('outfile', 'rb') as fp:
+    badlist = pickle.load(fp)
 
 tweet = input("What is your tweet?\n")
 
@@ -9,7 +13,6 @@ def censor_tweet(tweet):
     tweet = re.sub(r'[^\w\s]', '', tweet)
     tweet_list = tweet.lower().split()
     for i in range(len(tweet_list)):
-        print("In for loop")
         tweet_array = [tweet_list[i]]
         if predict(tweet_array) == 1:
             originaltweet[i] = '*' * len(originaltweet[i])
@@ -17,4 +20,19 @@ def censor_tweet(tweet):
     return censor_string
 
 
+def censor_tweet_bad_list(tweet):
+    originaltweet = tweet.split()
+    tweet = re.sub(r'[^\w\s]', '', tweet)
+    tweet_list = tweet.lower().split()
+    for i in range(len(tweet_list)):
+        try:
+            temp = badlist.index(tweet_list[i])
+            originaltweet[i] = '*' * len(originaltweet[i])
+        except:
+            pass
+    censor_string = ' '.join(originaltweet)
+    return censor_string
+
+
 print(censor_tweet(tweet))
+print(censor_tweet_bad_list(tweet))
