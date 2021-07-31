@@ -1,4 +1,4 @@
-from  flask import Flask
+from flask import Flask, flash, jsonify, render_template, request
 from flask.templating import render_template
 
 app = Flask(__name__)
@@ -15,6 +15,12 @@ def black_list():
 @app.route("/real-world")
 def real_world():
     return render_template("RealWorld.html")
+
+@app.route("/handling", methods=['POST'])
+def handling():
+    tweet = request.form['tweet']
+    print(tweet)
+    return "<h1><h1>"
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -2,12 +2,21 @@
 {% block title %} Home Page {% endblock %}
 
 {% block content %}
-<h1>Welcome to our home page</h1>
+<h1 class="text-center">Welcome to our home page</h1>
 
-<form >
+<form class="form text-center"  action="{{ url_for('handling') }}" method="post" >
     <label for="fname">Enter in your tweet</label><br>
-    <input type="text" id="tweet" name="tweet"><br>
+    <input type="text" id="tweet" name="tweet" ><br>
+    <input type="submit" id=' submit' name="submit"><br>
 </form>
-  
-  
+
+<!--
+<script>
+    function getAndSendTweet() {
+    var nameValue = document.getElementById("tweet").value;
+    console.log(nameValue)
+    }
+</script>
+-->
+
   {% endblock %}
