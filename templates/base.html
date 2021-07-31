@@ -12,6 +12,22 @@
             margin: 0px;
             font-size: 30px;
         }
+        .navbar-custom a:hover {
+        color: black;
+        border-bottom: 5px outset DarkCyan;
+      }
+        .navbar-custom a.active {
+        color: black;
+        border-bottom: 5px solid DarkCyan;
+      }
+      .navbar-custom a {
+        float: right;
+        color: black;
+        padding: 15px;
+        text-decoration: none;
+        line-height: 45px;
+        border-radius: 4px;
+      }
     </style>
     <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
         <div class="container-fluid">
@@ -20,10 +36,10 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse d-flex justify-content-end end" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="/#">Home</a>
-              <a class="nav-link active" href="/black-list">Blacklist</a>
-              <a class="nav-link active" href="/real-world">Real World</a>
+            <div class="navbar-nav navbar-custom">
+              <a class="nav-link" aria-current="page" href="/#">Home</a>
+              <a class="nav-link" href="/black-list">Blacklist</a>
+              <a class="nav-link" href="/real-world">Real World</a>
             </div>
           </div>
         </div>

@@ -19,8 +19,8 @@ def real_world():
 @app.route("/handling", methods=['POST'])
 def handling():
     tweet = request.form['tweet']
-    print(tweet)
-    return f"<h1>{tweet}<h1>"
+    user_name = request.form['user_name']
+    return f"<h1>Hi {user_name}, your tweet was: {tweet} <h1>"
 
 if __name__ == "__main__":
     app.run(debug=True)

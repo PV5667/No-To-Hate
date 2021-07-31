@@ -2,13 +2,32 @@
 {% block title %} Home Page {% endblock %}
 
 {% block content %}
-<h1 class = "text-center" >Welcome to our home page</h1>
-
+<div class = "container">
+    <h1 class = "text-center" >Welcome to our home page</h1>
+    <style>
+        body {
+          background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3959&q=80');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-position: center;
+          background-size: 100% 100%;
+        }
+      </style>      
 <form class = "text-center"action="{{ url_for('handling') }}" method="post">
-    <label for="fname">Enter in your tweet</label><br>
+    <label for="user_name">Enter in your name</label><br>
+    <input type="text" id="user_name" name="user_name"><br>
+    <label for="tweet">Enter in your tweet</label><br>
     <input type="text" id="tweet" name="tweet"><br>
-    <input type = "submit">
+    <div class="col-auto">
+        <input type="submit" class="btn btn-primary mb-3"></button>
+    </div> 
 </form>
-  
-  
+
+<h1 class = "text-center">Your one stop shop to validate your tweets.</h1>
+<h2 class = "text-center">Check out our other pages for more information!</h2>
+
+
+</div>
+
+
   {% endblock %}
