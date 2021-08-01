@@ -52,8 +52,8 @@ def handling():
     tweet = request.form['tweet']
     user_name = request.form['user_name']
     censored_string = censor_tweet_bad_list(tweet)
-    model_prediction = run_through_model(tweet)
-    return render_template("handling.html", user_name=user_name, censored_string=censored_string, model_prediction = model_prediction)
+    #model_prediction = run_through_model(tweet)
+    return render_template("handling.html", user_name=user_name, censored_string=censored_string, model_prediction  = 5)
 
 if __name__ == "__main__":
     app.run(debug=True)
