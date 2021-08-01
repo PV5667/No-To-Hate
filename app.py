@@ -1,30 +1,11 @@
 from flask import Flask, flash, jsonify, render_template, request
 from flask.templating import render_template
-import re
-from profanity_check import predict, predict_prob
-import pickle
 import tensorflow as tf
 import numpy as np
 
 
 app = Flask(__name__)
 
-with open('outfile', 'rb') as fp:
-    badlist = pickle.load(fp)
-
-
-def censor_tweet_bad_list(tweet):
-    originaltweet = tweet.split()
-    tweet = re.sub(r'[^\w\s]', '', tweet)
-    tweet_list = tweet.lower().split()
-    for i in range(len(tweet_list)):
-        try:
-            temp = badlist.index(tweet_list[i])
-            originaltweet[i] = '*' * len(originaltweet[i])
-        except:
-            pass
-    censor_string = ' '.join(originaltweet)
-    return censor_string
 
 def run_through_model(tweet):
 
@@ -57,9 +38,3 @@ def handling():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-
-
-
-
-
