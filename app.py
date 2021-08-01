@@ -112,7 +112,6 @@ def real_world():
 @app.route("/handling", methods=['POST'])
 def handling():
     tweet = request.form['tweet']
-    user_name = request.form['user_name']
     censored_string = censor(tweet)
     model_prediction = prep_for_model(tweet)
     threshold = 0.68
@@ -120,7 +119,7 @@ def handling():
         cleared = True
     else:
         cleared = False
-    return render_template("handling.html", user_name=user_name, censored_string=censored_string, model_prediction=model_prediction, cleared=cleared)
+    return render_template("handling.html",  censored_string=censored_string, model_prediction=model_prediction, cleared=cleared)
 
 
 @app.route("/censored")
