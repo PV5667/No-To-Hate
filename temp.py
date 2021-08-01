@@ -1,9 +1,13 @@
 import pickle
 from itertools import product
-
+from pathlib import Path
+import os
+print(os.getcwd())
+# root = Path('.')
+# my_path = root / "Outfile" / "outfile"
 CHARS_MAPPING = {
     "a": ("a", "@", "*", "4"),
-    "i": ("i", "*", "l", "1","!"),
+    "i": ("i", "*", "l", "1", "!"),
     "o": ("o", "*", "0", "@"),
     "u": ("u", "*", "v"),
     "v": ("v", "*", "u"),
@@ -3326,6 +3330,8 @@ badlist = [
     "zoophilia",
     "zubb",
 ]
+
+
 def generate_leet(word):
     combos = [
         (char,
@@ -3333,10 +3339,11 @@ def generate_leet(word):
         for char in iter(word)
     ]
     return ["".join(pattern) for pattern in product(*combos)]
+
+
 print("Initial badlist length " + str(len(badlist)))
-total = 0
 for i in range(len(badlist)):
-    print(i)
+    #print(i)
     if len(badlist[i]) < 20:
         combos = [
             (char,
@@ -3344,10 +3351,14 @@ for i in range(len(badlist)):
             for char in iter(badlist[i])
         ]
         leet = ["".join(pattern) for pattern in product(*combos)]
-        total += len(leet)
         for j in range(len(leet)):
             badlist.append(leet[j])
 print("Final badlist length " + str(len(badlist)))
 print("Writing to outfile")
+
+# my_file = open(my_path, 'wb')
+# my_file = pickle.dump(badlist, my_file)
+# print(my_file)
+# my_file.close()
 with open('outfile', 'wb') as fp:
     pickle.dump(badlist, fp)
