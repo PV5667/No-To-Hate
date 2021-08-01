@@ -7,7 +7,7 @@ from itertools import product
 with open('outfile', 'rb') as fp:
     badlist = pickle.load(fp)
 print("Final badlist length " + str(len(badlist)))
-tweet = 'handjob'  # input("What is your tweet?\n")
+tweet = input("What is your tweet?\n")
 
 
 def censor_tweet(tweet):
