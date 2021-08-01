@@ -101,11 +101,12 @@ def prep_for_model(tweet):
     test_labels = np.array(test_labels)
 
     model = tf.keras.Sequential([
-        tf.keras.layers.Embedding(vocab_size, embedding_dim, input_length=max_length),
-        tf.keras.layers.GlobalAveragePooling1D(),
-        tf.keras.layers.Dense(24, activation='relu'),
-        tf.keras.layers.Dense(1, activation='sigmoid')
-        ])
+    tf.keras.layers.Embedding(vocab_size, embedding_dim, input_length=max_length),
+    tf.keras.layers.GlobalAveragePooling1D(),
+    tf.keras.layers.Dense(20, activation='relu'),
+    tf.keras.layers.Dropout(0.5),
+    tf.keras.layers.Dense(1, activation='sigmoid')
+    ])
     tweets = [tweet] 
     sequences = tokenizer.texts_to_sequences(tweets)
     padded = pad_sequences(sequences, maxlen=max_length, padding=padding_type, truncating=trunc_type)
@@ -135,7 +136,7 @@ def handling():
     user_name = request.form['user_name']
     censored_string = censor(tweet)
     model_prediction = prep_for_model(tweet)
-    threshold = 0.90
+    threshold = 0.68
     if model_prediction >= threshold:
         cleared = True
     else:
