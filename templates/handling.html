@@ -11,8 +11,15 @@
           background-size: 100% 100%;
         }
       </style>
-    <h1 class = "text-center">Hi {{user_name}}, your censored tweet is: {{censored_string}} </h1>
     <h1 class = text-center>What the model predicted: {{model_prediction}}</h1>
+    {% if cleared == False %}
+    <h1 class = "text-center">Yikes {{user_name}}, please keep that to a minimum.<h1>
+    <h1 class = "text-center">Here we have censored your tweet: {{censored_string}} </h1>
+    <h1 class = "text-center"> Please keep the concerns of your fellow community members in your mind.</h1>
+
+    {% else %}
+      <h1 class  = "text-center">Great! Your tweet was not detected by us to be hateful. <br> Thanks for contributing to our community in a meaningful way.<h1>
+    {% endif %}
 </div>
 
 {% endblock %}
