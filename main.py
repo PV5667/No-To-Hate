@@ -6,7 +6,7 @@ from itertools import product
 
 with open('outfile', 'rb') as fp:
     badlist = pickle.load(fp)
-
+print("Final badlist length " + str(len(badlist)))
 tweet = 'handjob'  # input("What is your tweet?\n")
 
 
@@ -36,30 +36,5 @@ def censor_tweet_bad_list(tweet):
     return censor_string
 
 
-def generate_leet(word):
-    CHARS_MAPPING = {
-        "a": ("a", "@", "*", "4"),
-        "i": ("i", "*", "l", "1"),
-        "o": ("o", "*", "0", "@"),
-        "u": ("u", "*", "v"),
-        "v": ("v", "*", "u"),
-        "l": ("l", "1"),
-        "e": ("e", "*", "3"),
-        "s": ("s", "$", "5"),
-        "t": ("t", "7",),
-    }
-    combos = [
-        (char,
-         ) if char not in CHARS_MAPPING else CHARS_MAPPING[char]
-        for char in iter(word)
-    ]
-    return ["".join(pattern) for pattern in product(*combos)]
-
-
-def censor_tweet_leet(tweet):
-    return Profanity.censor(tweet)
-
-print(generate_leet("test"))
-# print(censor_tweet(tweet))
-# print(censor_tweet_bad_list(tweet))
-# print(censor_tweet_leet(tweet))
+print(censor_tweet(tweet))
+print(censor_tweet_bad_list(tweet))
