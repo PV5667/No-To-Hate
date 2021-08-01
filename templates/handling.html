@@ -4,21 +4,34 @@
 <div>
     <style>
         body {
-          background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3959&q=80');
+          background-image: url('https://wallpaperaccess.com/full/2923163.jpg');
           background-repeat: no-repeat;
           background-attachment: fixed;
           background-position: center;
           background-size: 100% 100%;
         }
+      .text {
+        font-family: 'Helvetica';
+        text-align: center;
+        color: ivory;
+      }
+      .header {
+        font-size:3vw;
+      }
+      .para {
+        margin-left: 20%;
+        margin-right: 20%;
+        font-size:2vw;
+      }
       </style>
-    <h1 class = text-center>What the model predicted: {{model_prediction}}</h1>
+    <h1 class = "text-center text header">What the model predicted: {{model_prediction}}</h1>
     {% if cleared == False %}
-    <h1 class = "text-center">Yikes {{user_name}}, please keep that to a minimum.<h1>
-    <h1 class = "text-center">Here we have censored your tweet: {{censored_string}} </h1>
-    <h1 class = "text-center"> Please keep the concerns of your fellow community members in your mind.</h1>
+    <h1 class = "text-center text header">Yikes {{user_name}}, please keep that to a minimum.<h1>
+    <h1 class = "text-center text header">Here we have censored your tweet: {{censored_string}} </h1>
+    <h1 class = "text-center text header"> Please keep the concerns of your fellow community members in your mind.</h1>
 
     {% else %}
-      <h1 class  = "text-center">Great! Your tweet was not detected by us to be hateful. <br> Thanks for contributing to our community in a meaningful way.<h1>
+      <h1 class  = "text-center text header">Great! Your tweet was not detected by us to be hateful. <br> Thanks for contributing to our community in a meaningful way.<h1>
     {% endif %}
 </div>
 
