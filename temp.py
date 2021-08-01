@@ -1,3 +1,17 @@
+import pickle
+from itertools import product
+
+CHARS_MAPPING = {
+    "a": ("a", "@", "*", "4"),
+    "i": ("i", "*", "l", "1"),
+    "o": ("o", "*", "0", "@"),
+    "u": ("u", "*", "v"),
+    "v": ("v", "*", "u"),
+    "l": ("l", "1"),
+    "e": ("e", "*", "3"),
+    "s": ("s", "$", "5"),
+    "t": ("t", "7",),
+}
 badlist = [
     "2 girls 1 cup",
     "2g1c",
@@ -3312,22 +3326,39 @@ badlist = [
     "zoophilia",
     "zubb",
 ]
-tweet = input("What is your tweet?\n")
-
-def censor_tweet(tweet):
-  tweet = re.sub(r'[^\w\s]', '', tweet)
-  tweet_list = tweet.lower().split()
-  #print(tweet_list)
-  #print(badlist)
-  for i in range(len(tweet_list)):
-    for j in range(len(badlist)):
-      if tweet_list[i] == badlist[j]:
-        badword = tweet_list[i]
-        censor = '*'*len(badword)
-        #print(censor)
-        tweet_list[i] = censor
-        #print(tweet_list)
-  censor_string = ' '.join(tweet_list)
-  return censor_string
-
-print(censor_tweet(tweet))
+def generate_leet(word):
+    CHARS_MAPPING = {
+        "a": ("a", "@", "*", "4"),
+        "i": ("i", "*", "l", "1"),
+        "o": ("o", "*", "0", "@"),
+        "u": ("u", "*", "v"),
+        "v": ("v", "*", "u"),
+        "l": ("l", "1"),
+        "e": ("e", "*", "3"),
+        "s": ("s", "$", "5"),
+        "t": ("t", "7",),
+    }
+    combos = [
+        (char,
+         ) if char not in CHARS_MAPPING else CHARS_MAPPING[char]
+        for char in iter(word)
+    ]
+    return ["".join(pattern) for pattern in product(*combos)]
+print("Initial badlist length " + str(len(badlist)))
+total = 0
+for i in range(len(badlist)):
+    print(i)
+    if len(badlist[i]) < 20:
+        combos = [
+            (char,
+             ) if char not in CHARS_MAPPING else CHARS_MAPPING[char]
+            for char in iter(badlist[i])
+        ]
+        leet = ["".join(pattern) for pattern in product(*combos)]
+        total += len(leet)
+        for j in range(len(leet)):
+            badlist.append(leet[j])
+print("Final badlist length " + str(len(badlist)))
+print("Writing to outfile")
+with open('outfile', 'wb') as fp:
+    pickle.dump(badlist, fp)

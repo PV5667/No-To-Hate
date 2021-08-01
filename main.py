@@ -1,10 +1,12 @@
 import re
 from profanity_check import predict, predict_prob
 import pickle
+# from better_profanity import Profanity
+from itertools import product
 
 with open('outfile', 'rb') as fp:
     badlist = pickle.load(fp)
-
+print("Final badlist length " + str(len(badlist)))
 tweet = input("What is your tweet?\n")
 
 
