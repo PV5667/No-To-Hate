@@ -6,7 +6,8 @@ from itertools import product
 
 with open('outfile', 'rb') as fp:
     badlist = pickle.load(fp)
-print("Final badlist length " + str(len(badlist)))
+print("Final badlist length " + str(len(badlist))) # should that be 7,061,626
+print(str(len(badlist))=7061626)
 tweet = input("What is your tweet?\n")
 
 
