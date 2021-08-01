@@ -43,7 +43,7 @@
         <h1 class = "text"> Stopping hate one tweet at a time.</h1>
     <form class = "form" action="{{ url_for('handling') }}" method="post">
         <label for="tweet">Enter in your tweet</label><br>
-        <input type="text" id="tweet" name="tweet"><br>
+        <textarea name="tweet" cols="50" rows="5"></textarea>
         <div class="col-auto">
             <input type="submit" class="btn btn-primary mb-3">
         </div>
