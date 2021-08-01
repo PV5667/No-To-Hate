@@ -9,9 +9,7 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import sklearn.preprocessing
 from sklearn.preprocessing import LabelBinarizer
-import re
 import pickle
-from itertools import product
 
 app = Flask(__name__)
 ############################################################################################################
@@ -28,25 +26,11 @@ CHARS_MAPPING = {
     "t": ("t", "7", "%"),
 }
 
-with open('outfile', 'rb') as fp:
+with open('badlist', 'rb') as fp:
     badlist = pickle.load(fp)
-
-
-for i in range(len(badlist)):
-    if len(badlist[i]) < 20:
-        combos = [
-            (char,
-             ) if char not in CHARS_MAPPING else CHARS_MAPPING[char]
-            for char in iter(badlist[i])
-        ]
-        leet = ["".join(pattern) for pattern in product(*combos)]
-        for j in range(len(leet)):
-            badlist.append(leet[j])
-
 
 def censor(tweet):
     originaltweet = tweet.split()
-    tweet = re.sub(r'[^\w\s]', '', tweet)
     tweet_list = tweet.lower().split()
     for i in range(len(tweet_list)):
         try:
@@ -56,6 +40,7 @@ def censor(tweet):
             pass
     censor_string = ' '.join(originaltweet)
     return censor_string
+
 ############################################################################################################################################################
 def prep_for_model(tweet):
     vocab_size = 10000
@@ -85,8 +70,8 @@ def prep_for_model(tweet):
     word_index = tokenizer.word_index
 
     train_sequences = tokenizer.texts_to_sequences(train_tweets)
-    train_padded = pad_sequences(train_sequences, maxlen = max_length, 
-                             padding = padding_type, 
+    train_padded = pad_sequences(train_sequences, maxlen = max_length,
+                             padding = padding_type,
                              truncating = trunc_type)
 
 
@@ -107,7 +92,7 @@ def prep_for_model(tweet):
     tf.keras.layers.Dropout(0.5),
     tf.keras.layers.Dense(1, activation='sigmoid')
     ])
-    tweets = [tweet] 
+    tweets = [tweet]
     sequences = tokenizer.texts_to_sequences(tweets)
     padded = pad_sequences(sequences, maxlen=max_length, padding=padding_type, truncating=trunc_type)
 
