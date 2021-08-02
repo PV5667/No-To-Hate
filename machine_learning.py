@@ -132,7 +132,7 @@ tokenizer.fit_on_texts(train_tweets)
 word_index = tokenizer.word_index
 
 
-
+##################################https://github.com/Vicomtech/hate-speech-dataset.git##############################################
 
 train_sequences = tokenizer.texts_to_sequences(train_tweets)
 train_padded = pad_sequences(train_sequences, maxlen = max_length, 
