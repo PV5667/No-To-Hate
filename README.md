@@ -1,1 +1,1 @@
-# discrimination-detection
+# No To Hate
