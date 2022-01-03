@@ -1,5 +1,6 @@
 # No To Hate
 Project submitted for Helix Hacks 2021
+Winner of the Most Technologically Advanced Award
 # Inspiration
 
 After seeing and knowing people who have been affected by hate speech on social media platforms, we decided to block hate speech before it can even be posted on social media. With the recent influx of anti-Asian American incidents and messages, we wanted to give back to the community. Our tool can help block discriminatory, racist, misogynistic, etc sentiments and make the internet a better place.
